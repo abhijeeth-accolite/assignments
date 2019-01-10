@@ -1,0 +1,22 @@
+<h1>SIGN UP</h1>
+<div>
+  <input type="text" placeholder="name" id="name"><br/>
+  <input type="tel"  placeholder="phone no" id="mobile"><br/>
+  <input type="email" placeholder="Email-id" id="email"><br/>
+  <input type="password" placeholder="password" id="password"><br/>
+  <button type="button" onclick="createUser()">Sign Up</button><br/>
+  <a href="login.html">Existing user? login here!</a>
+</div>
+<script>
+  function createUser() {
+    var eEmail = document.getElementById("email").value;
+    var ePassword = document.getElementById("password").value;
+    var eName = document.getElementById("name").value;
+    var eMobile = document.getElementById("mobile").value;
+    localStorage.setItem('email', eEmail);
+    localStorage.setItem('password', ePassword);
+    localStorage.setItem('name', eName);
+    localStorage.setItem('mobile', eMobile);
+    window.location.href = "video.html"
+  }
+</script>

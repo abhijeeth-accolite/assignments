@@ -1,0 +1,19 @@
+<h1>Login to continue</h1>
+<div>
+  <input type="email" name="email" placeholder="Email-id" id="email"><br>
+  <input type="password" name="password" placeholder="password" id="password"><br>
+  <button type="button" id="login" onclick="authenticate()">Login</button><br/>
+  <a href="signup.html">New user? sign up here!</a>
+</div>
+<script>
+  function authenticate() {
+    var sEmail = localStorage.getItem('email');
+    var sPassword = localStorage.getItem('password');
+    var eEmail = document.getElementById("email").value;
+    var ePassword = document.getElementById("password").value;
+    if (sEmail == eEmail && sPassword == ePassword)
+      window.location.href = "video.html"
+    else
+      window.alert('Invalid username or password');
+  }
+</script>
