@@ -42,12 +42,12 @@ INSERT INTO CUSTOMER
 VALUES
 ("customer001", "cust001@gmail.com", 999001, FALSE, 1),
 ("customer002", "cust002@gmail.com", 999002, FALSE, 2),
-("customer003", "cust003@gmail.com", 999003, FALSE, 3),
+("customer003", "cust003@gmail.com", 999003, FALSE, 8),
 ("customer004", "cust004@gmail.com", 999004, FALSE, 4),
 ("customer005", "cust005@gmail.com", 999005, TRUE, 5),
 ("customer006", "cust006@gmail.com", 999006, TRUE, 6),
 ("customer007", "cust007@gmail.com", 999007, TRUE, 7),
-("customer008", "cust008@gmail.com", 999008, TRUE, 8);
+("customer008", "cust008@gmail.com", 999008, TRUE, 3);
 
 INSERT INTO REVIEW
 (comment, rating, review_time, customer_id, driver_id)
@@ -64,7 +64,7 @@ INSERT INTO TRIP
 VALUES
 (1, 1, NOW(), NOW()+30, 1, 4),
 (2, 2, NOW(), NOW()+30, 3, 2),
-(3, 3, NOW(), NULL, 5, NULL),
+(3, 3, NOW(), NULL, 5, 8),
 (4, 4, NOW(), NULL, 11, NULL);
 
 UPDATE REVIEW
@@ -78,5 +78,7 @@ WHERE customer_id = 4 AND driver_id = 1;
 UPDATE REVIEW
 SET rating = 2
 WHERE customer_id = 3 AND driver_id = 4;
+
+CALL updateHomeWhileLive(15, 15, "#0015", "street 15", "cross 15, main 15", "Bangalore", "Karnataka", 5600015, 3);
 
 
