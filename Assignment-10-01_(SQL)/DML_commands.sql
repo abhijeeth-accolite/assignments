@@ -78,7 +78,3 @@ WHERE customer_id = 4 AND driver_id = 1;
 UPDATE REVIEW
 SET rating = 2
 WHERE customer_id = 3 AND driver_id = 4;
-
-CALL updateHomeWhileLive(15, 15, "#0015", "street 15", "cross 15, main 15", "Bangalore", "Karnataka", 5600015, 3);
-
-
