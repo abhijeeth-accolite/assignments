@@ -1,5 +1,3 @@
-import java.util.*;
-
-interface RandomLoader{
+interface RandomLoader {
     void randomlyLoadData();
 }
