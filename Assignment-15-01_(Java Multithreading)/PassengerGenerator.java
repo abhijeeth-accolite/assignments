@@ -11,9 +11,11 @@ public class PassengerGenerator implements Runnable {
     public static final int MAX_PASSENGER_ID = 999999;
 
     private LinkedBlockingQueue<Passenger> pq;
+    private LinkedBlockingQueue<Taxi> stands;
 
-    public PassengerGenerator(LinkedBlockingQueue<Passenger> pq) {
+    public PassengerGenerator(LinkedBlockingQueue<Passenger> pq, LinkedBlockingQueue<Taxi> stands) {
         this.pq = pq;
+        this.stands = stands;
     }
 
     public void run() {
@@ -22,8 +24,10 @@ public class PassengerGenerator implements Runnable {
                 int pid = (int) ((Math.random() * ((MAX_PASSENGER_ID - MIN_PASSENGER_ID) + 1)) + MIN_PASSENGER_ID);
                 int dest = (int) (Math.random() * Location.values().length);
                 int delay = (int) ((Math.random() * ((MAX_DELAY - MIN_DELAY) + 1)) + MIN_DELAY);
-                pq.put(new Passenger(pid, Location.values()[dest]));
-                // System.out.println("Passenger Queue : " + pq.toString());
+                Passenger newPassenger = new Passenger(pid, Location.values()[dest], stands, pq);
+                pq.put(newPassenger);
+                new Thread(newPassenger).start();
+                System.out.println(newPassenger + " joined the PASSENGER QUEUE"); // log
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();

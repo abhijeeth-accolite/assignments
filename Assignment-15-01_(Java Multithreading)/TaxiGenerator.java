@@ -25,7 +25,7 @@ public class TaxiGenerator implements Runnable {
                 Taxi newTaxi = new Taxi(tid, stands, tq);
                 tq.put(newTaxi);
                 new Thread(newTaxi).start();
-                // System.out.println("Taxi Queue : " + tq.toString());
+                System.out.println(newTaxi + " joined the TAXI QUEUE"); // log
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();

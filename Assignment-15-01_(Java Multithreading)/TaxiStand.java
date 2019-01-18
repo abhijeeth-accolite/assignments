@@ -12,7 +12,7 @@ class TaxiStand {
         LinkedBlockingQueue<Passenger> pq = new LinkedBlockingQueue<Passenger>();
         LinkedBlockingQueue<Taxi> tq = new LinkedBlockingQueue<Taxi>();
 
-        PassengerGenerator pg = new PassengerGenerator(pq);
+        PassengerGenerator pg = new PassengerGenerator(pq, stands);
         TaxiGenerator tg = new TaxiGenerator(tq, stands);
 
         new Thread(pg).start();
