@@ -1,12 +1,16 @@
 import java.util.*;
+import java.text.*;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Taxi implements Runnable {
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
     public static final int TAXI_SIZE = 4;
     public static final int DRIVER_OBSERVATION_DELAY = 100; // milliseconds
-    public static final int MAX_STAND_WAIT_TIME = 50000; // milliseconds
+    public static final int MAX_STAND_WAIT_TIME = 45000; // milliseconds
 
     private int id;
     private Location destination;
@@ -62,7 +66,7 @@ public class Taxi implements Runnable {
                     if (tq.peek() == this && stands.size() < TaxiStand.TAXI_STAND_SIZE) {
                         stands.put(tq.take());
                         this.state = TaxiState.WAITING_FOR_PASSENGERS;
-                        System.out.println(this + " moved from queue to stand"); // log
+                        System.out.println(dateFormat.format(new Date()) + " : " + this + " moved from queue to stand"); // log
                     } else {
                         Thread.sleep(100);
                     }
@@ -72,8 +76,8 @@ public class Taxi implements Runnable {
                     if (this.standWaitTime > MAX_STAND_WAIT_TIME || occupiedSeats.size() == TAXI_SIZE) {
                         this.state = TaxiState.READY_TO_DEPART;
                         stands.remove(this);
-                        System.out.println(
-                                this + " left the taxi stand with " + this.occupiedSeats.size() + " passengers"); // log
+                        System.out.println(dateFormat.format(new Date()) + " : " + this + " left the taxi stand with "
+                                + this.occupiedSeats.size() + " passengers"); // log
                     } else {
                         Thread.sleep(100);
                     }

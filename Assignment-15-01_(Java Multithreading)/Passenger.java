@@ -1,7 +1,9 @@
 import java.util.*;
+import java.text.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Passenger implements Runnable {
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private int id;
     private Location destination;
 
@@ -40,13 +42,15 @@ public class Passenger implements Runnable {
                             t.setDestination(this.destination);
                             t.occupySeat(pq.take());
                             this.state = PassengerState.SITTING_IN_TAXI;
-                            System.out.println(this + " moved from queue to " + t); // log
+                            System.out.println(
+                                    dateFormat.format(new Date()) + " : " + this + " moved from queue to " + t); // log
                             break;
                         } else if (t.getDestination() == this.destination && t.waitingForPassengers()
                                 && t.getOccupiedSeats().size() < Taxi.TAXI_SIZE) {
                             t.occupySeat(pq.take());
                             this.state = PassengerState.SITTING_IN_TAXI;
-                            System.out.println(this + " moved from queue to " + t); // log
+                            System.out.println(
+                                    dateFormat.format(new Date()) + " : " + this + " moved from queue to " + t); // log
                             break;
                         }
                     }

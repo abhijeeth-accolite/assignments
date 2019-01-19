@@ -1,9 +1,12 @@
 import java.util.*;
+import java.text.*;
+
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class TaxiGenerator implements Runnable {
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     public static final int MIN_DELAY = 4000;
     public static final int MAX_DELAY = 8000;
     public static final int MIN_TAXI_ID = 10000;
@@ -25,7 +28,7 @@ public class TaxiGenerator implements Runnable {
                 Taxi newTaxi = new Taxi(tid, stands, tq);
                 tq.put(newTaxi);
                 new Thread(newTaxi).start();
-                System.out.println(newTaxi + " joined the TAXI QUEUE"); // log
+                System.out.println(dateFormat.format(new Date()) + " : " + newTaxi + " joined the TAXI QUEUE"); // log
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();

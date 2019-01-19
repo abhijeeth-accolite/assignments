@@ -1,9 +1,11 @@
+import java.text.*;
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class PassengerGenerator implements Runnable {
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
     public static final int MIN_DELAY = 3000;
     public static final int MAX_DELAY = 6000;
@@ -27,7 +29,8 @@ public class PassengerGenerator implements Runnable {
                 Passenger newPassenger = new Passenger(pid, Location.values()[dest], stands, pq);
                 pq.put(newPassenger);
                 new Thread(newPassenger).start();
-                System.out.println(newPassenger + " joined the PASSENGER QUEUE"); // log
+                System.out
+                        .println(dateFormat.format(new Date()) + " : " + newPassenger + " joined the PASSENGER QUEUE"); // log
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
