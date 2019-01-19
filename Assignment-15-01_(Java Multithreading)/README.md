@@ -48,6 +48,6 @@
 ## Instructions to run app
 
 - git clone https://github.com/abhijeeth-accolite/assignments.git
-- cd '.\Assignment-15-01\_(Java Multithreading)\'
+- cd '.\Assignment-15-01_(Java Multithreading)\'
 - javac TaxiStand.java
 - java TaxiStand
