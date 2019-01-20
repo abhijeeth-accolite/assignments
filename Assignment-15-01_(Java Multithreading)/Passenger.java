@@ -3,6 +3,7 @@ import java.text.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Passenger implements Runnable {
+    public static final int OBSERVATION_DELAY = 100; // milliseconds
     DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private int id;
     private Location destination;
@@ -55,7 +56,7 @@ public class Passenger implements Runnable {
                         }
                     }
                 } else {
-                    Thread.sleep(100);
+                    Thread.sleep(OBSERVATION_DELAY);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();

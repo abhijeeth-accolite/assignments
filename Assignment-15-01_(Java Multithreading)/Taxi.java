@@ -68,7 +68,7 @@ public class Taxi implements Runnable {
                         this.state = TaxiState.WAITING_FOR_PASSENGERS;
                         System.out.println(dateFormat.format(new Date()) + " : " + this + " moved from queue to stand"); // log
                     } else {
-                        Thread.sleep(100);
+                        Thread.sleep(DRIVER_OBSERVATION_DELAY);
                     }
                 }
                 if (this.state == TaxiState.WAITING_FOR_PASSENGERS) {
@@ -79,7 +79,7 @@ public class Taxi implements Runnable {
                         System.out.println(dateFormat.format(new Date()) + " : " + this + " left the taxi stand with "
                                 + this.occupiedSeats.size() + " passengers"); // log
                     } else {
-                        Thread.sleep(100);
+                        Thread.sleep(DRIVER_OBSERVATION_DELAY);
                     }
                 }
             } catch (InterruptedException e) {
