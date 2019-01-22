@@ -1,0 +1,14 @@
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Generated student id : 19Hibernate: insert into student (STUDENT_AGE, STUDENT_GENDER, STUDENT_NAME, STUDENT_ID) values (?, ?, ?, ?)
+Hibernate: select this_.STUDENT_ID as STUDENT_1_1_1_, this_.STUDENT_AGE as STUDENT_2_1_1_, this_.STUDENT_GENDER as STUDENT_3_1_1_, this_.STUDENT_NAME as STUDENT_4_1_1_, courses2_.STUDENT_ID as STUDENT_3_0_3_, courses2_.COURSE_ID as COURSE_I1_0_3_, courses2_.COURSE_ID as COURSE_I1_0_0_, courses2_.COURSE_NAME as COURSE_N2_0_0_, courses2_.STUDENT_ID as STUDENT_3_0_0_ from student this_ left outer join course courses2_ on this_.STUDENT_ID=courses2_.STUDENT_ID where this_.STUDENT_ID=?
+Student [studentId=19, studentName=Abhijeeth, studentGender=male, studentAge=21, courses=null]
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+21Hibernate: insert into course (COURSE_NAME, STUDENT_ID, COURSE_ID) values (?, ?, ?)
+Hibernate: insert into course (COURSE_NAME, STUDENT_ID, COURSE_ID) values (?, ?, ?)
+Hibernate: select this_.STUDENT_ID as STUDENT_1_1_1_, this_.STUDENT_AGE as STUDENT_2_1_1_, this_.STUDENT_GENDER as STUDENT_3_1_1_, this_.STUDENT_NAME as STUDENT_4_1_1_, courses2_.STUDENT_ID as STUDENT_3_0_3_, courses2_.COURSE_ID as COURSE_I1_0_3_, courses2_.COURSE_ID as COURSE_I1_0_0_, courses2_.COURSE_NAME as COURSE_N2_0_0_, courses2_.STUDENT_ID as STUDENT_3_0_0_ from student this_ left outer join course courses2_ on this_.STUDENT_ID=courses2_.STUDENT_ID where this_.STUDENT_ID=?
+Student [studentId=19, studentName=Abhijeeth, studentGender=male, studentAge=21, courses=null]
+Student [studentId=19, studentName=Abhijeeth, studentGender=male, studentAge=21, courses=null]
