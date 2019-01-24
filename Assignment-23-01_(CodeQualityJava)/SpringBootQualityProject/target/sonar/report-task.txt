@@ -1,0 +1,6 @@
+projectKey=com.abhijeeth:SpringMVC
+serverUrl=http://localhost:9000
+serverVersion=7.5.0.20543
+dashboardUrl=http://localhost:9000/dashboard?id=com.abhijeeth%3ASpringMVC
+ceTaskId=AWiBBG-XWoo6M33_3J8t
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWiBBG-XWoo6M33_3J8t

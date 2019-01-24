@@ -4,11 +4,11 @@
 
 <img src = "./results/StudentDAOtestOutput.jpg">
 
-## coverage of StudentDaoTest
+## Coverage of StudentDaoTest
 
 <img src = "./results/totalCoverage.jpg">
 
-## input students.csv with students
+## Input students.csv with students
 
 `generated at random by StudentDaoTest`
 
@@ -16,7 +16,7 @@
 
 <a href = "./rankstudents/students.csv">students.csv</a>
 
-## input marks.csv with marks
+## Input marks.csv with marks
 
 `generated at random by StudentDaoTest`
 
@@ -24,7 +24,7 @@
 
 <a href = "./rankstudents/marks.csv">marks.csv</a>
 
-## output output.csv with students and their ranks
+## Output output.csv with students and their ranks
 
 `generated at runtime by StudentDao`
 
