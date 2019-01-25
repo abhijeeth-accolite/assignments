@@ -25,4 +25,8 @@ export class BookService {
   addToCart(cartItem: CartItem): Observable<any> {
     return this.http.post("/libraryBackend/cart", cartItem);
   }
+
+  getBooksFromCart(): Observable<any> {
+    return this.http.get("libraryBackend/cart/1 ");
+  }
 }

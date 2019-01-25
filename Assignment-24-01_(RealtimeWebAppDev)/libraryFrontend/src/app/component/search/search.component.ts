@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from "@angular/core";
 import { BookService } from "src/app/provider/book.service";
+import { CartItem } from "src/app/model/cart-item";
 
 @Component({
   selector: "app-search",
@@ -28,7 +29,10 @@ export class SearchComponent implements OnInit {
   }
 
   addToCart(bookId) {
-    this.bookService.addToCart(bookId).subscribe(response => {
+    let cartItem = new CartItem();
+    cartItem.bookId = bookId;
+    cartItem.userId = 1;
+    this.bookService.addToCart(cartItem).subscribe(response => {
       console.log(response);
     });
   }

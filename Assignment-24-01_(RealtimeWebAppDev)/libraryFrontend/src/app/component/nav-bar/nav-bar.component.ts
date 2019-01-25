@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CartCountService } from "src/app/provider/cart-count.service";
 
 @Component({
   selector: "app-nav-bar",
@@ -6,11 +7,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./nav-bar.component.scss"]
 })
 export class NavBarComponent implements OnInit {
-  cartItemCount: number;
-  constructor() {}
+  cartCount: number;
+  constructor(private cartCountService: CartCountService) {}
 
   ngOnInit() {
-    // TODO - set this to number of items in cart
-    this.cartItemCount = 5;
+    this.cartCountService.currentCount.subscribe(
+      count => (this.cartCount = count)
+    );
   }
 }

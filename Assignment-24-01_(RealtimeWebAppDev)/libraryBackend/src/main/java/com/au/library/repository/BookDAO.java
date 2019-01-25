@@ -38,11 +38,12 @@ public class BookDAO {
 		return book;
 	}
 	
-	public List<Integer> getItemsFromUsersCart(Integer userId) {
+	public List<Book> getItemsFromUsersCart(Integer userId) {
 
-		String query = "SELECT BOOK_ID FROM cart WHERE USER_ID=" + userId;
+		String query = "SELECT * FROM cart NATURAL JOIN book WHERE USER_ID=" + userId;
 		return jdbcTemplate.query(query, (rs, i) -> {
-			return rs.getInt("BOOK_ID");
+			return new Book(rs.getInt("BOOK_ID"), rs.getString("BOOK_NAME"), rs.getString("BOOK_AUTHORNAME"),
+					rs.getDouble("BOOK_PRICE"), rs.getString("BOOK_DESC"));
 		});
 
 	}

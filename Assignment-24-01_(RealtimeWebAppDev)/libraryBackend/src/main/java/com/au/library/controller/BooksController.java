@@ -38,7 +38,7 @@ public class BooksController {
 	}
 	
 	@GetMapping("/cart/{userId}")
-	public List<Integer> getItemsFromUsersCart(@PathVariable Integer userId) {
+	public List<Book> getItemsFromUsersCart(@PathVariable Integer userId) {
 		return bookDAO.getItemsFromUsersCart(userId);
 	}
 
