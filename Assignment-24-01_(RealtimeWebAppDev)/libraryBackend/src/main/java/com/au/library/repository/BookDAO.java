@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.au.library.model.Book;
+import com.au.library.model.CartItem;
 
 @Repository
 public class BookDAO {
@@ -35,5 +36,20 @@ public class BookDAO {
 		book.setId(jdbcTemplate.update(query,
 				new Object[] { book.getName(), book.getAuthorName(), book.getPrice(), book.getDescription() }));
 		return book;
+	}
+	
+	public List<Integer> getItemsFromUsersCart(Integer userId) {
+
+		String query = "SELECT BOOK_ID FROM cart WHERE USER_ID=" + userId;
+		return jdbcTemplate.query(query, (rs, i) -> {
+			return rs.getInt("BOOK_ID");
+		});
+
+	}
+
+	public CartItem addBookToCart(CartItem cartItem) {
+		String query = "INSERT INTO cart (USER_ID, BOOK_ID) VALUES (?, ?)";
+		jdbcTemplate.update(query, new Object[] { cartItem.getUserId(), cartItem.getBookId(), });
+		return cartItem;
 	}
 }

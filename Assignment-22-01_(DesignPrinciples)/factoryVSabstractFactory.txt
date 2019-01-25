@@ -1,0 +1,11 @@
+Factory : 
+ - In Factory pattern, we create object without exposing the creation logic to the client.
+ - The newly created object is referred to using a common interface.
+ - The factory includes logic for creation of objects.
+
+Abstract Factory : 
+ - Abstract Factory patterns work around a super-factory which creates other factories. 
+ - This factory is also called as factory of factories.
+ - In Abstract Factory pattern an interface is responsible for creating a factory of 
+    related objects without explicitly specifying their classes.
+ - Each generated factory can give the objects as per the Factory pattern.

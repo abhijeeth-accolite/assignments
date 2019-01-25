@@ -7,12 +7,10 @@ import { Component, OnInit } from "@angular/core";
 })
 export class NavBarComponent implements OnInit {
   cartItemCount: number;
-  orderCount: number;
   constructor() {}
 
   ngOnInit() {
     // TODO - set this to number of items in cart
     this.cartItemCount = 5;
-    this.orderCount = 7;
   }
 }

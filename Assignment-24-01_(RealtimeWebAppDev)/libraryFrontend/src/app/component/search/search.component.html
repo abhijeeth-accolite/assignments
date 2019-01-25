@@ -1,6 +1,18 @@
-<ul>
-  <div class="card-deck">
-    <div class="card" style="width: 18rem;" *ngFor="let book of books">
+<div class="container">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button">Search</button>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search for books in the library"
+      aria-describedby="basic-addon1"
+      [(ngModel)]="searchString"
+    />
+  </div>
+  <div class="card-columns">
+    <div class="card" *ngFor="let book of books">
       <img
         class="card-img-top"
         src="https://stmed.net/sites/default/files/square-wallpapers-25312-8924278.jpg"
@@ -10,8 +22,10 @@
         <h5 class="card-title">{{ book.name }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{ book.authorName }}</h6>
         <p class="card-text">{{ book.description }}</p>
-        <a href="#" class="btn btn-primary">+ Add to cart</a>
+        <a class="btn btn-primary" (click)="addToCart(book.id)"
+          >+ Add to cart</a
+        >
       </div>
     </div>
   </div>
-</ul>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnChanges } from "@angular/core";
 import { BookService } from "src/app/provider/book.service";
 
 @Component({
@@ -8,19 +8,28 @@ import { BookService } from "src/app/provider/book.service";
 })
 export class SearchComponent implements OnInit {
   books: any = [];
+  filteredBooks: any = [];
+  searchString: string;
   constructor(private bookService: BookService) {}
 
   ngOnInit() {
     this.bookService.getBooks().subscribe(response => {
       if (response && response.length > 0) {
         this.books = response;
+        this.filteredBooks = this.books;
       }
     });
+  }
 
-    // this.bookService.getBook().subscribe(response => {
-    //   if (response) {
-    //     this.book = response;
-    //   }
-    // });
+  filterBooks() {
+    this.filteredBooks = this.books.filter(function(book) {
+      return book.name.includes(this.searchString);
+    });
+  }
+
+  addToCart(bookId) {
+    this.bookService.addToCart(bookId).subscribe(response => {
+      console.log(response);
+    });
   }
 }
