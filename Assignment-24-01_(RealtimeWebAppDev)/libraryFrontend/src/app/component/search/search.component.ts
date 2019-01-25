@@ -7,14 +7,20 @@ import { BookService } from "src/app/provider/book.service";
   styleUrls: ["./search.component.scss"]
 })
 export class SearchComponent implements OnInit {
-  book: any;
+  books: any = [];
   constructor(private bookService: BookService) {}
 
   ngOnInit() {
-    this.bookService.getBook().subscribe(response => {
-      if (response) {
-        this.book = response;
+    this.bookService.getBooks().subscribe(response => {
+      if (response && response.length > 0) {
+        this.books = response;
       }
     });
+
+    // this.bookService.getBook().subscribe(response => {
+    //   if (response) {
+    //     this.book = response;
+    //   }
+    // });
   }
 }

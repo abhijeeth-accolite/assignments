@@ -8,16 +8,10 @@ import { Book } from "src/app/model/book";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  books: any = [];
   book: Book;
   constructor(private bookService: BookService) {}
 
   ngOnInit() {
-    this.bookService.getBooks().subscribe(response => {
-      if (response && response.length > 0) {
-        this.books = response;
-      }
-    });
     this.book = new Book();
   }
 

@@ -1,1 +1,17 @@
-<p *ngIf="book">{{ book.name }}</p>
+<ul>
+  <div class="card-deck">
+    <div class="card" style="width: 18rem;" *ngFor="let book of books">
+      <img
+        class="card-img-top"
+        src="https://stmed.net/sites/default/files/square-wallpapers-25312-8924278.jpg"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ book.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ book.authorName }}</h6>
+        <p class="card-text">{{ book.description }}</p>
+        <a href="#" class="btn btn-primary">+ Add to cart</a>
+      </div>
+    </div>
+  </div>
+</ul>

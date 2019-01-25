@@ -9,9 +9,11 @@ import { SearchComponent } from "./component/search/search.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { BookComponent } from './component/book/book.component';
+import { CartComponent } from './component/cart/cart.component';
+import { OrdersComponent } from './component/orders/orders.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavBarComponent, SearchComponent, BookComponent],
+  declarations: [AppComponent, HomeComponent, NavBarComponent, SearchComponent, BookComponent, CartComponent, OrdersComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
